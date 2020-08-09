@@ -31,7 +31,7 @@ def maximum():
         if values[0].is_integer():
             return str(int(values[0])) + ' \n'
         else:
-            return str(values[0]) + ' \n'
+            return str(float(round(values[0], 3))) + ' \n'
     else:
         return values
 
@@ -44,7 +44,7 @@ def minimum():
         if values[0].is_integer():
             return str(int(values[0])) + ' \n'
         else:
-            return str(float(round(values[0], 1))) + ' \n'
+            return str(float(round(values[0], 3))) + ' \n'
 
 
 @app.route('/average')
@@ -71,20 +71,6 @@ def avg():
             return str(float(round(avrg, 3))) + ' \n'
     else:
         return values
-
-
-def Inputs_method():
-    try:
-        inputs = request.args.get('X', type=str)
-        inputs = inputs.split(',')
-        values = []
-        for value in inputs:
-            value = float(value)
-            values.append(value)
-        return values
-    except ValueError:
-        Error_msg = "There are error values in inputs, Please provide a list of values,for example 1,2,3,4\n"
-        return Error_msg
 
 
 @app.route('/mean')

@@ -26,7 +26,7 @@ def average():
         if avrg.is_integer():
             return str(int(avrg)) + ' \n'
         else:
-            return str(avrg) + ' \n'
+            return str(float(round(avrg,1))) + ' \n'
     else:
         return values
 
@@ -39,7 +39,7 @@ def avg():
         if avrg.is_integer():
             return str(int(avrg)) + ' \n'
         else:
-            return str(avrg) + ' \n'
+            return str(float(round(avrg,1))) + ' \n'
     else:
         return values
 
@@ -52,7 +52,7 @@ def mean():
         if avrg.is_integer():
             return str(int(avrg)) + ' \n'
         else:
-            return str(avrg) + ' \n'
+            return str(float(round(avrg, 3))) + ' \n'
     else:
         return values
 

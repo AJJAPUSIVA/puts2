@@ -3,18 +3,6 @@ import statistics
 
 app = Flask(__name__)
 
-@app.route('/')
-def index():
-    return 'Usage;\n<Operation>?A=<Value1>&B=<Value2>\n'
-
-
-@app.route('/add')
-def addition():
-    value1=request.args.get('A',default = 0, type = int)
-    value2=request.args.get('B',default = 0, type = int)
-    result=value1+value2
-    return '%d \n' % result
-
 
 def Inputs_method():
     try:
@@ -26,7 +14,7 @@ def Inputs_method():
             values.append(value)
         return values
     except ValueError:
-        Error_msg = "There are error values in inputs, Please provide a list of values,for example 1,2,3,4"
+        Error_msg = "There are error values in inputs, Please provide a list of values,for example 1,2,3,4\n"
         return Error_msg
 
 
@@ -34,11 +22,11 @@ def Inputs_method():
 def average():
     values = Inputs_method()
     if not type(values) is str:
-        mean = statistics.mean(values)
-        if (mean.is_integer()):
-            return str(int(mean))
+        avrg = statistics.mean(values)
+        if avrg.is_integer():
+            return str(int(avrg)) + ' \n'
         else:
-            return str(mean)
+            return str(avrg) + ' \n'
     else:
         return values
 
@@ -47,11 +35,11 @@ def average():
 def avg():
     values = Inputs_method()
     if not type(values) is str:
-        mean = statistics.mean(values)
-        if (mean.is_integer()):
-            return str(int(mean))
+        avrg = statistics.mean(values)
+        if avrg.is_integer():
+            return str(int(avrg)) + ' \n'
         else:
-            return str(mean)
+            return str(avrg) + ' \n'
     else:
         return values
 
@@ -60,15 +48,14 @@ def avg():
 def mean():
     values = Inputs_method()
     if not type(values) is str:
-        mean = statistics.mean(values)
-        if (mean.is_integer()):
-            return str(int(mean))
+        avrg = statistics.mean(values)
+        if avrg.is_integer():
+            return str(int(avrg)) + ' \n'
         else:
-            return str(mean)
+            return str(avrg) + ' \n'
     else:
         return values
 
-        
 
 if __name__ == "__main__":
     app.run()

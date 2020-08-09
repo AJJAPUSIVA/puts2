@@ -26,15 +26,9 @@ def minimum():
         if values[0].is_integer():
             return str(int(values[0])) + ' \n'
         else:
-            return str(values[0]) + ' \n'
+            return str(float(round(values[0], 1))) + ' \n'
     else:
         return values
-
-
-
-
-
-
 
 
 if __name__ == "__main__":

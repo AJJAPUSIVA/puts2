@@ -45,9 +45,9 @@ def minimum():
             return str(int(values[0])) + ' \n'
         else:
             return str(float(round(values[0], 3))) + ' \n'
-	else:
-        return values
 
+    else:
+        return values
 
 @app.route('/average')
 def average():

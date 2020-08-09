@@ -4,10 +4,10 @@ import statistics
 app = Flask(__name__)
 
 
-
 @app.route('/')
 def index():
     return "Usage;\n<Operation>?X=<Value1, Value2, ..., ValueN>\n"
+
 
 def Inputs_method():
     try:
@@ -36,11 +36,17 @@ def maximum():
         return values
 
 
-
-
-
-
-
+@app.route('/min')
+def minimum():
+    values = Inputs_method()
+    if not type(values) is str:
+        values.sort()
+        if values[0].is_integer():
+            return str(int(values[0])) + ' \n'
+        else:
+            return str(float(round(values[0], 1))) + ' \n'
+    else:
+        return values
 
 
 if __name__ == "__main__":
